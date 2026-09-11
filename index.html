@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cristiano Ronaldo Story — Five Chapters</title>
+  <meta name="description" content="A neutral, chapter-by-chapter look at Cristiano Ronaldo's career, from Sporting Lisbon to Al Nassr." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-2: #10101a;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-strong: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text: #f5f5f0;
+      --text-muted: #9a9aa8;
+      --text-dim: #6b6b78;
+      --accent: #daff3d;
+      --accent-ink: #0a0a0f;
+      --accent-2: #c4b5e8;
+      --danger: #ff5b7a;
+
+      --radius-sm: 10px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
+      --radius-xl: 44px;
+      --radius-pill: 999px;
+
+      --shadow-soft: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
+      --shadow-glow: 0 0 60px rgba(218, 255, 61, 0.15);
+
+      --font-display: "Space Grotesk", system-ui, sans-serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --font-script: "Caveat", cursive;
+
+      --container: min(1240px, 92vw);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-color: #0f0620;
+      z-index: 0;
+      overflow: hidden;
+    }
+    /* Painted neon backdrop — diagonal light streak, warm pink halo, green trail.
+       Now that we're not layering a JPG under this, the negative-z stacking
+       quirk that hid the image no longer applies. */
+    .hero-bg::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(112deg, transparent 34%, rgba(220,220,255,0.85) 35%, rgba(200,200,255,0.15) 36.5%, transparent 38%),
+        linear-gradient(112deg, transparent 48%, rgba(180,220,255,0.35) 49%, transparent 50.5%),
+        radial-gradient(38% 55% at 32% 55%, rgba(240, 90, 170, 0.55), transparent 65%),
+        radial-gradient(28% 50% at 18% 68%, rgba(80, 220, 120, 0.28), transparent 65%),
+        radial-gradient(45% 70% at 88% 55%, rgba(230, 220, 255, 0.55), transparent 70%),
+        linear-gradient(180deg, #1a0836 0%, #240a3f 40%, #0f0620 100%);
+    }
+    .hero-bg::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,15,0) 0%, rgba(10,10,15,0.35) 60%, rgba(10,10,15,0.75) 100%);
+      pointer-events: none;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      width: min(1280px, 100%);
+      min-height: min(78dvh, 780px);
+      padding: 24px 24px 32px;
+      border-radius: var(--radius-xl);
+      background: rgba(20, 20, 28, 0.28);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Nav bar inside hero card */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 8px 8px 20px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .brand-mark {
+      width: 34px; height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, var(--accent), #7a9520 70%);
+      box-shadow: inset 0 0 0 3px rgba(0,0,0,0.35), 0 0 20px rgba(218,255,61,0.25);
+    }
+    .brand-name { font-size: 18px; }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(20, 20, 28, 0.55);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .nav-pill a {
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      border-radius: var(--radius-pill);
+      transition: color 200ms ease, background 200ms ease;
+    }
+    .nav-pill a:hover { color: var(--text); }
+    .nav-pill a.active {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .nav-menu {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      background: rgba(20, 20, 28, 0.55);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .nav-menu svg { width: 18px; height: 18px; }
+
+    /* Hero content */
+    .hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px 8px 8px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.7);
+      margin: 0 0 8px;
+    }
+    .hero-title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(48px, 8.5vw, 128px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+    }
+    .hero-script {
+      display: block;
+      font-family: var(--font-script);
+      font-weight: 500;
+      color: var(--accent);
+      font-size: clamp(52px, 8vw, 120px);
+      line-height: 1;
+      letter-spacing: 0.01em;
+      transform: rotate(-4deg) translateY(20px);
+      margin-bottom: -4px;
+      text-shadow: 0 0 24px rgba(218,255,61,0.35);
+    }
+    .hero-sub {
+      max-width: 620px;
+      margin: 24px auto 32px;
+      font-size: 15px;
+      color: rgba(245,245,240,0.78);
+    }
+    .cta-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+      box-shadow: 0 10px 40px -10px rgba(218,255,61,0.5);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 50px -10px rgba(218,255,61,0.7); }
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      background: rgba(20, 20, 28, 0.55);
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      backdrop-filter: blur(10px);
+    }
+    .btn-icon svg { width: 16px; height: 16px; }
+
+    /* Hero footer strips */
+    .hero-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: auto;
+      padding-top: 24px;
+    }
+    .trust {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .avatar-stack {
+      display: inline-flex;
+      align-items: center;
+    }
+    .avatar-stack .dot {
+      width: 32px; height: 32px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.9);
+      background: linear-gradient(135deg, #444 0%, #222 100%);
+      margin-left: -8px;
+    }
+    .avatar-stack .dot:first-child { margin-left: 0; }
+    .avatar-stack .dot:nth-child(1) { background: linear-gradient(135deg, #b31217, #6d0000); }
+    .avatar-stack .dot:nth-child(2) { background: linear-gradient(135deg, #ffffff, #cfcfcf); }
+    .avatar-stack .dot:nth-child(3) { background: linear-gradient(135deg, #003399, #0a1a5b); }
+    .trust-text .k { font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--text); }
+    .trust-text .s { font-size: 12px; color: rgba(245,245,240,0.65); }
+
+    .stat-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      background: rgba(10, 10, 15, 0.55);
+      border: 1px solid var(--border-strong);
+      backdrop-filter: blur(10px);
+    }
+    .stat-card .num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 26px;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+    .stat-card .lbl { font-family: var(--font-script); font-size: 20px; color: var(--text); line-height: 1; }
+
+    /* ===== INTRO STRIP ===== */
+    .intro {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .intro-composite {
+      position: relative;
+      width: min(1400px, 95vw);
+      margin: 0 auto;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+    .intro-composite-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      z-index: 0;
+    }
+    /* Scrim: keeps the text side legible over the neon image */
+    .intro-composite::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(10,10,15,0.85) 0%, rgba(10,10,15,0.55) 45%, rgba(10,10,15,0.1) 100%),
+        linear-gradient(180deg, rgba(10,10,15,0) 60%, rgba(10,10,15,0.6) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .intro-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 72px 56px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .intro-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .intro-tag::before {
+      content: "";
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+    .intro-lead {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(22px, 2.4vw, 32px);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .intro-lead em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .intro-note {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 20px;
+      max-width: 60ch;
+    }
+
+    /* ===== CHAPTERS ===== */
+    .chapter {
+      position: relative;
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+      /* 3D scroll stage */
+      perspective: 1600px;
+      perspective-origin: 50% 30%;
+      transform-style: preserve-3d;
+      /* Skip render work for chapters not yet in view; browsers reserve space via contain-intrinsic-size */
+      content-visibility: auto;
+      contain-intrinsic-size: 0 900px;
+    }
+    .chapter-wrap { transform-style: preserve-3d; }
+    /* will-change only on elements that are actively parallaxed (scrub-scroll driven).
+       One-time entry animations don't need will-change hints. */
+    .chapter-figure img { will-change: transform; }
+    .hero-card { transform-style: preserve-3d; }
+    .chapter:nth-of-type(even) { background: var(--bg-2); }
+    .chapter-wrap {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .chapter-meta {
+      position: sticky;
+      top: 40px;
+    }
+    /* Chapters that carry an image can't be sticky (image would overflow the viewport) */
+    .chapter--with-image .chapter-meta { position: static; }
+
+    .chapter-figure {
+      margin: 32px 0 0;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      overflow: visible;
+    }
+    /* Extra breathing room between stacked photographs in a chapter */
+    .chapter-figure + .chapter-figure {
+      margin-top: 112px;
+    }
+    .chapter-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* No crop — preserve the full frame including the ball at the bottom */
+      object-fit: contain;
+      /* Fade top and bottom edges into the section background */
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 82%, transparent 100%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 82%, transparent 100%);
+    }
+    .chapter-figure figcaption {
+      padding: 8px 4px 0;
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+      background: transparent;
+      border: none;
+    }
+    .chapter-num {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--text-dim);
+      letter-spacing: 0.24em;
+    }
+    .chapter-era {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 10px;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+    .chapter-title {
+      margin: 20px 0 8px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(42px, 5.5vw, 84px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .chapter-title .script {
+      display: block;
+      font-family: var(--font-script);
+      font-weight: 500;
+      color: var(--accent);
+      font-size: 0.55em;
+      line-height: 1;
+      margin-bottom: 6px;
+      transform: rotate(-3deg);
+      transform-origin: left center;
+    }
+    .chapter-clubs {
+      color: var(--text-muted);
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      margin: 0 0 16px;
+    }
+    .chapter-body p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.75;
+      margin: 0 0 16px;
+    }
+    .chapter-body p:first-child::first-letter {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 3.4em;
+      float: left;
+      line-height: 0.9;
+      padding: 4px 12px 0 0;
+      color: var(--text);
+    }
+    /* Section subheads inside a chapter body */
+    .chapter-body h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(22px, 2vw, 28px);
+      letter-spacing: -0.01em;
+      color: var(--text);
+      line-height: 1.15;
+      margin: 44px 0 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .chapter-body h3::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      transform: translateY(-6px);
+    }
+
+    /* Right column: stats + highlight */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .stat {
+      padding: 20px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+    .stat .k {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .stat .k .unit { font-size: 16px; color: var(--text-muted); margin-left: 3px; }
+    .stat .l {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+    .stat.accent { background: linear-gradient(160deg, rgba(218,255,61,0.14), rgba(218,255,61,0.02)); border-color: rgba(218,255,61,0.25); }
+    .stat.accent .k { color: var(--accent); }
+
+    .highlight {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, var(--surface-strong), var(--surface));
+      position: relative;
+      overflow: hidden;
+    }
+    .highlight::before {
+      content: "";
+      position: absolute;
+      top: -1px; left: 24px; right: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.6;
+    }
+    .highlight-label {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .highlight-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1.3;
+      margin: 0 0 10px;
+      color: var(--text);
+    }
+    .highlight-body {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Timeline dots (used in one chapter) */
+    .timeline { margin-top: 20px; }
+    .timeline li {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .timeline li:first-child { border-top: none; padding-top: 0; }
+    .timeline li time { color: var(--accent); font-family: var(--font-display); font-weight: 500; }
+    .timeline ul { padding: 0; margin: 0; }
+
+    /* Quote block for The Injury */
+    .pullquote {
+      margin: 24px 0 0;
+      padding: 28px 28px 28px 40px;
+      border-left: 3px solid var(--accent);
+      background: var(--surface);
+      border-radius: 4px 20px 20px 4px;
+    }
+    .pullquote p {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1.4;
+      color: var(--text);
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
+    }
+    .pullquote cite {
+      font-style: normal;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* ===== SEND-OFF (personal note) ===== */
+    .send-off {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg-2);
+    }
+    .send-off-composite {
+      position: relative;
+      width: min(1400px, 95vw);
+      margin: 0 auto;
+      min-height: 720px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .send-off-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      z-index: 0;
+    }
+    .send-off-composite::after {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(10,10,15,0.92) 0%, rgba(10,10,15,0.6) 45%, rgba(10,10,15,0.05) 100%),
+        linear-gradient(180deg, rgba(10,10,15,0) 55%, rgba(10,10,15,0.7) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .send-off-content {
+      position: relative;
+      z-index: 2;
+      padding: 72px 56px;
+      max-width: 720px;
+    }
+    .send-off-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.7);
+      margin-bottom: 20px;
+    }
+    .send-off-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin: 0 0 32px;
+      color: var(--text);
+    }
+    .send-off-title .script {
+      display: block;
+      font-family: var(--font-script);
+      font-weight: 500;
+      color: var(--accent);
+      font-size: 0.55em;
+      line-height: 1;
+      transform: rotate(-3deg);
+      margin-bottom: 4px;
+    }
+    .send-off-content p {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(17px, 1.5vw, 20px);
+      line-height: 1.55;
+      color: var(--text);
+      margin: 0 0 18px;
+    }
+    .send-off-content p em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .send-off-signature {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.14);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .send-off-signature .script {
+      font-family: var(--font-script);
+      font-size: 28px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .send-off-signature .who {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    @media (max-width: 900px) {
+      .send-off-content { padding: 48px 24px; max-width: none; }
+      .send-off-composite { min-height: 640px; }
+    }
+
+    /* ===== READING PROGRESS BAR ===== */
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.06);
+      z-index: 1000;
+      pointer-events: none;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 100%;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      box-shadow: 0 0 12px rgba(218, 255, 61, 0.55);
+      will-change: transform;
+    }
+
+    /* Split-text characters in chapter/hero titles */
+    .chapter-title .char,
+    .hero-title .char {
+      display: inline-block;
+      vertical-align: baseline;
+      will-change: transform, opacity;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .footer-wrap {
+      width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer p { margin: 0; color: var(--text-dim); font-size: 13px; }
+    .footer .brand { font-size: 15px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav-pill { display: none; }
+      .hero-card { padding: 16px; }
+      .hero-content { padding: 8px 4px; }
+      .hero-footer { flex-direction: column; align-items: flex-start; }
+      .intro-wrap,
+      .chapter-wrap {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .chapter { padding: 80px 0; }
+      .chapter-meta { position: static; }
+      .stat-grid { grid-template-columns: repeat(3, 1fr); }
+      .stat { padding: 16px 12px; }
+      .stat .k { font-size: 24px; }
+    }
+    @media (max-width: 500px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .brand-name { display: none; }
+    }
+
+    /* ===== Reveal on scroll (progressive enhancement) ===== */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1);
+    }
+    .js .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============= READING PROGRESS BAR ============= -->
+  <div class="progress-bar" aria-hidden="true"><div class="progress-fill"></div></div>
+
+  <!-- ============= HERO ============= -->
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <div class="hero-card">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="The Ronaldo Story home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">The Ronaldo Story</span>
+        </a>
+
+        <div class="nav-pill" role="navigation">
+          <a href="#rise" class="active">The Rise</a>
+          <a href="#machine">The Machine</a>
+          <a href="#injury">The Injury</a>
+          <a href="#comeback">The Come Back</a>
+          <a href="#falloff">The Fall Off</a>
+        </div>
+
+        <button class="nav-menu" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7"/>
+            <line x1="4" y1="12" x2="20" y2="12"/>
+            <line x1="4" y1="17" x2="20" y2="17"/>
+          </svg>
+        </button>
+      </nav>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Portugal &middot; 2001 &mdash; Present</p>
+        <h1 class="hero-title">
+          <span class="hero-script">The story of</span>
+          CRISTIANO RONALDO
+        </h1>
+        <p class="hero-sub">A five-chapter look at twenty-two years at the top of the game &mdash; the rise, the peak, the injury, the second wind, and the long farewell. Told without the fandom, without the takedown.</p>
+
+        <div class="cta-row">
+          <a href="#rise" class="btn">Read the story
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#falloff" class="btn-icon" aria-label="Jump to last chapter">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-footer">
+        <div class="trust">
+          <div class="avatar-stack" aria-hidden="true">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="trust-text">
+            <div class="k">Sporting &middot; United &middot; Madrid &middot; Juventus &middot; Al Nassr</div>
+            <div class="s">Five clubs, one country, twenty-two seasons</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="num">900+</div>
+          <div class="lbl">career goals</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============= INTRO ============= -->
+  <section class="intro">
+    <div class="intro-composite">
+      <img class="intro-composite-bg" src="assets/hero.jpg" alt="Cristiano Ronaldo mid-stride under neon lights, a stylised light-particle trail behind him." loading="lazy" />
+      <div class="intro-wrap">
+        <div>
+          <span class="intro-tag">On the record</span>
+        </div>
+        <div>
+          <p class="intro-lead">
+            What follows isn&rsquo;t a defence and isn&rsquo;t a takedown. It&rsquo;s a chapter-by-chapter look at a career that <em>reshaped what a footballer could still do at 30, 35, and 40</em> &mdash; and at the moments that shaped him too.
+          </p>
+          <p class="intro-note">Numbers are drawn from public match records at the time of writing. Where a claim is contested, it&rsquo;s framed as such.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 01 — THE RISE ============= -->
+  <section id="rise" class="chapter chapter--with-image">
+    <div class="chapter-wrap">
+      <div class="chapter-meta reveal">
+        <div class="chapter-num">CHAPTER 01</div>
+        <h2 class="chapter-title">
+          <span class="script">the</span>
+          Rise
+        </h2>
+        <span class="chapter-era">2001 &mdash; 2009</span>
+        <p class="chapter-clubs">Sporting CP &middot; Manchester United</p>
+        <figure class="chapter-figure">
+          <img src="assets/rise.jpg" alt="Cristiano Ronaldo in the Manchester United shirt, standing over a stationary ball at Old Trafford." loading="lazy" />
+          <figcaption>Old Trafford, late 2000s &mdash; the shirt he grew into.</figcaption>
+        </figure>
+        <figure class="chapter-figure">
+          <img src="assets/rise-2.jpg" alt="Cristiano Ronaldo kissing the UEFA Champions League trophy after the 2008 final in Moscow." loading="lazy" />
+          <figcaption>Luzhniki Stadium, Moscow &mdash; 21 May 2008.</figcaption>
+        </figure>
+      </div>
+
+      <div class="chapter-body reveal">
+        <p>Cristiano Ronaldo signed for Sporting Lisbon&rsquo;s academy at twelve and made the crossing on his own. Teachers there later remembered a small boy who kept a picture of his mother on his desk. He debuted for Sporting&rsquo;s first team as a 17-year-old in October 2002. In August 2003, in a pre-season friendly at the Est&aacute;dio Jos&eacute; Alvalade, he took Manchester United&rsquo;s defenders apart badly enough that Sir Alex Ferguson, watching from the away dugout, agreed to buy him on the flight home.</p>
+
+        <h3>The Arrival</h3>
+        <p>The player who arrived at Old Trafford at eighteen was not the one who left it. Early Ronaldo was a stepover merchant &mdash; quick, flashy, decorated with tricks that did not always end in a shot, a cross, or a pass. Ruud van Nistelrooy, the club&rsquo;s senior finisher whose game demanded that the ball arrive in the box, is generally identified as the loudest of the dressing-room voices. In different retellings the frustration is the same: Ronaldo would rather beat his man three times than release the ball. A training-ground argument between the two, later described by several teammates, turned personal in the months after Ronaldo&rsquo;s father Jos&eacute; Dinis died in September 2005. Van Nistelrooy left for Real Madrid the following summer.</p>
+
+        <h3>Far From Home</h3>
+        <p>Homesickness ran alongside all of it. He was eighteen, living far from his family, in a country whose weather, food and press he was not built for, learning the language on the job. By his own later admission he cried more in his first English winter than he ever expected to. The football he could at least work on. He worked on it obsessively &mdash; extra gym, extra finishing drills, a body he began to reshape season by season.</p>
+
+        <h3>Shoot on Sight</h3>
+        <p>The turn came in 2006&mdash;07. Ferguson, who had defended him publicly through the World Cup wink incident and the trophy-less early seasons, moved him inside, gave him a free role behind the strikers, and told him to shoot on sight. The tricks stayed. The end product stopped being optional. In 2007&mdash;08 he scored 42 goals in 49 appearances across all competitions &mdash; a figure no United winger had reached in modern memory. The Premier League title arrived. The Champions League followed in May.</p>
+
+        <h3>Moscow</h3>
+        <p>The final in Moscow, against Chelsea, is the moment the transition became irreversible. He rose above Michael Essien to head United in front after 26 minutes. Lampard equalised on the stroke of half time. Extra time settled nothing. In the penalty shootout, with his stuttering, hop-and-hold run-up, he paused, struck the ball low to Petr &Ccaron;ech&rsquo;s right, and saw it saved. He walked back to the halfway line convinced he had cost his team the trophy. John Terry then slipped on the shot that would have won it for Chelsea; Nicolas Anelka&rsquo;s was saved; United took it 6&mdash;5. Ronaldo was filmed sobbing on the sodden turf, and then euphoric a minute later. The two states, roughly a minute apart, tell the whole chapter.</p>
+
+        <h3>Ballon d&rsquo;Or</h3>
+        <p>The same season delivered the goal that won the inaugural FIFA Pusk&aacute;s Award &mdash; a swerving right-footed strike from beyond forty yards, away at Porto, in the Champions League quarter-final. In December 2008 he collected the Ballon d&rsquo;Or, at twenty-three. Nine months later he left Manchester for Real Madrid for a world-record &pound;80 million. The trickster had gone; a Ballon d&rsquo;Or winner had left in his place.</p>
+
+        <div class="highlight" style="margin-top: 24px;">
+          <span class="highlight-label">In one season</span>
+          <h4 class="highlight-title">2007&mdash;08: 42 goals, two trophies, a first Ballon d&rsquo;Or</h4>
+          <p class="highlight-body">The season that ended the argument. He never again finished a full campaign as a peripheral talent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 02 — THE MACHINE ============= -->
+  <section id="machine" class="chapter chapter--with-image">
+    <div class="chapter-wrap">
+      <div class="chapter-meta reveal">
+        <div class="chapter-num">CHAPTER 02</div>
+        <h2 class="chapter-title">
+          <span class="script">the</span>
+          Machine
+        </h2>
+        <span class="chapter-era">2009 &mdash; 2018</span>
+        <p class="chapter-clubs">Real Madrid</p>
+        <figure class="chapter-figure">
+          <img src="assets/machine.jpg" alt="Cristiano Ronaldo in the Real Madrid home shirt, roaring after a goal." loading="lazy" />
+          <figcaption>Santiago Bernab&eacute;u &mdash; the nine-year residency.</figcaption>
+        </figure>
+        <figure class="chapter-figure">
+          <img src="assets/machine-bbc.jpg" alt="Gareth Bale, Cristiano Ronaldo and Karim Benzema in Real Madrid shirts, holding the UEFA Champions League trophy after the 2018 final in Kyiv." loading="lazy" />
+          <figcaption>Bale, Cristiano, Benzema &mdash; the BBC, and the last of the three.</figcaption>
+        </figure>
+        <figure class="chapter-figure">
+          <img src="assets/machine-2.jpg" alt="Ronaldo, back to camera in the number 7 Real Madrid shirt, arms wide in his signature celebration stance at the Bernab&eacute;u." loading="lazy" />
+          <figcaption>The stance &mdash; and the number that came with it.</figcaption>
+        </figure>
+        <figure class="chapter-figure">
+          <img src="assets/machine-3.jpg" alt="Ronaldo in the Real Madrid purple change kit, airborne mid-overhead-kick, with Leonardo Bonucci of Juventus in the foreground." loading="lazy" />
+          <figcaption>Against Juventus &mdash; the kind of shape only certain players attempt.</figcaption>
+        </figure>
+      </div>
+
+      <div class="chapter-body reveal">
+        <p>He arrived in the summer of 2009 at twenty-four, on a &euro;94 million transfer that broke his own world record from six years earlier. Real Madrid were rebuilding after the failed second Gal&aacute;cticos project. The brief was straightforward: score enough goals to bring back the Champions League. He would spend the next nine seasons doing exactly that.</p>
+
+        <h3>The Work</h3>
+        <p>Nothing about how Ronaldo trained at Madrid was normal. Teammates from that era &mdash; Marcelo, Fabio Coentr&atilde;o, Pepe, Sergio Ramos in later interviews &mdash; describe the same picture: first onto the pitch, last off it, gym work before training and gym work after training, six small meals a day, sleep taken in staged naps, cryotherapy sessions when the body needed resetting. His measured body-fat percentage in his early thirties was reportedly closer to a decathlete&rsquo;s than a professional footballer&rsquo;s. The extremes read strangely from outside; inside they were the reason for what followed.</p>
+
+        <h3>The Trio</h3>
+        <p>The front three was completed in September 2013, when Madrid signed Gareth Bale for &euro;100 million and broke Ronaldo&rsquo;s transfer record. With Karim Benzema between them, the &ldquo;BBC&rdquo; &mdash; Bale, Benzema, Cristiano &mdash; became the most productive attacking trio of the decade. Benzema was the unselfish link, sacrificing his own numbers to feed the two runners either side; Bale supplied pace and power on the right; Ronaldo finished from the left half-space. Whatever the modern reappraisal of Benzema&rsquo;s individual gifts, both wingers said at the time, and continued to say afterwards, that they scored what they scored because of him.</p>
+
+        <p style="font-size: 12px; color: var(--text-dim); letter-spacing: 0.14em; text-transform: uppercase; margin: 24px 0 8px;">Within-trio combinations only</p>
+        <div class="stat-grid" style="margin: 0 0 8px; grid-template-columns: repeat(3, 1fr);">
+          <div class="stat accent">
+            <div class="k">40</div>
+            <div class="l">Cristiano &middot; goals from a trio pass</div>
+          </div>
+          <div class="stat">
+            <div class="k">23</div>
+            <div class="l">Benzema &middot; goals from a trio pass</div>
+          </div>
+          <div class="stat">
+            <div class="k">22</div>
+            <div class="l">Bale &middot; goals from a trio pass</div>
+          </div>
+        </div>
+        <div class="stat-grid" style="margin: 8px 0; grid-template-columns: repeat(3, 1fr);">
+          <div class="stat">
+            <div class="k">24</div>
+            <div class="l">Cristiano &middot; assists to the trio</div>
+          </div>
+          <div class="stat accent">
+            <div class="k">40</div>
+            <div class="l">Benzema &middot; assists to the trio</div>
+          </div>
+          <div class="stat">
+            <div class="k">20</div>
+            <div class="l">Bale &middot; assists to the trio</div>
+          </div>
+        </div>
+        <div class="stat-grid" style="margin: 8px 0; grid-template-columns: repeat(2, 1fr);">
+          <div class="stat accent">
+            <div class="k" style="font-size: 40px;">85</div>
+            <div class="l">Trio total &middot; goals from within-trio combinations</div>
+          </div>
+          <div class="stat accent">
+            <div class="k" style="font-size: 40px;">85</div>
+            <div class="l">Trio total &middot; assists to within-trio scorers</div>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: var(--text-dim); margin: 0 0 20px;">Only goals scored from a pass by one of the other two, across five seasons together (2013-14 &mdash; 2017-18). Roughly 85 goals came from within-trio combinations. Benzema was the connector; Cristiano was the top receiver. Public per-pair data varies between sources &mdash; figures cross-referenced from Opta/Squawka-era reporting and rounded.</p>
+
+        <h3>3 Peat</h3>
+        <p>The tenth European Cup, La D&eacute;cima, arrived in Lisbon in May 2014, when Sergio Ramos&rsquo;s 93rd-minute equaliser dragged a losing final into extra time against Atl&eacute;tico Madrid; Ronaldo scored the fourth in the 4-1 rout that followed. What is unique in the current format of the tournament, though, is what came next. When Zinedine Zidane took over as head coach in January 2016, Madrid won the Champions League that season, and the one after, and the one after that. Atl&eacute;tico again in Milan in 2016 on penalties, Ronaldo scoring the decisive kick. Juventus in Cardiff in 2017, a brace in the 4-1 final. Liverpool in Kyiv in 2018, where Bale&rsquo;s overhead kick took the night but Ronaldo top-scored the whole campaign with 15 &mdash; including his own overhead in the quarter-final second leg away at Juventus, applauded by the Turin crowd on its way in. No club has won three straight in the tournament in its current form. That team did.</p>
+
+        <h3>The Ledger</h3>
+        <p>The full ledger is difficult to compress. 450 goals in 438 appearances across all competitions. Five consecutive seasons of 50-plus goals between 2010-11 and 2014-15. Four Ballon d&rsquo;Or awards won in Madrid (2013, 2014, 2016, 2017), added to the Manchester one. Two La Liga titles &mdash; including 2011-12, when Jos&eacute; Mourinho&rsquo;s side broke the Guardiola-era Barcelona with a record 100 points, of which Ronaldo contributed 46 goals. Two Copa del Rey wins. Real Madrid&rsquo;s all-time top scorer, in nine seasons, at a club that had waited a century for the record.</p>
+
+        <h3>The Exit</h3>
+        <p>The departure in July 2018 was quicker and cooler than the numbers suggested it would be. Reports of a contract dispute with club president Florentino P&eacute;rez, and a sense inside Ronaldo&rsquo;s camp that the public recognition from the club did not match the output, produced a &euro;100 million move to Juventus almost the day the season&rsquo;s celebrations finished. The chapter closed with a European three-peat, a fifth Ballon d&rsquo;Or for the outgoing player, and a club that would take another four seasons to recover its European stride.</p>
+
+        <div class="stat-grid" style="margin-top: 24px;">
+          <div class="stat accent">
+            <div class="k">450</div>
+            <div class="l">Goals for Madrid</div>
+          </div>
+          <div class="stat">
+            <div class="k">4<span class="unit">×</span></div>
+            <div class="l">Champions League</div>
+          </div>
+          <div class="stat">
+            <div class="k">4<span class="unit">×</span></div>
+            <div class="l">Ballon d&rsquo;Or in Madrid</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 03 — THE INJURY ============= -->
+  <section id="injury" class="chapter chapter--with-image">
+    <div class="chapter-wrap">
+      <div class="chapter-meta reveal">
+        <div class="chapter-num">CHAPTER 03</div>
+        <h2 class="chapter-title">
+          <span class="script">the</span>
+          Injury
+        </h2>
+        <span class="chapter-era">c. 2014 onwards</span>
+        <p class="chapter-clubs">The quiet reinvention</p>
+        <figure class="chapter-figure">
+          <img src="assets/injury.jpg" alt="Cristiano Ronaldo on the ground at the Santiago Bernab&eacute;u, clutching his left leg after a collision." loading="lazy" />
+          <figcaption>The knee &mdash; recurring, patellar, quiet about it in public.</figcaption>
+        </figure>
+        <figure class="chapter-figure">
+          <img src="assets/injury-2.jpg" alt="Cristiano Ronaldo, portrait in the Real Madrid shirt during the injury era." loading="lazy" />
+          <figcaption>The years when the game had to be rebuilt around the joint.</figcaption>
+        </figure>
+      </div>
+
+      <div class="chapter-body reveal">
+        <p>The match was the 1-1 La Liga draw away at Real Valladolid on 7 May 2014, seventeen days before the Champions League final and six weeks before the World Cup in Brazil. Ronaldo was withdrawn in the second half with the left knee stiff. Real Madrid&rsquo;s medical staff had been managing the same joint for months. Patellar tendinopathy &mdash; chronic inflammation and micro-tearing of the tendon that connects the kneecap to the shin &mdash; became the accepted diagnosis, and it stayed the diagnosis.</p>
+
+        <h3>The Diagnosis</h3>
+        <p>Patellar tendinopathy is not the kind of injury that appears on an X-ray in a way most supporters would recognise. It is an overuse condition, common in jumpers and sprinters, that responds to load management and rest rather than a single surgical fix. Ronaldo&rsquo;s version was manageable &mdash; he never missed a full season to it &mdash; but it was chronic. The extra gym work that had built the Manchester and early-Madrid body could not, past a certain point, keep pushing the same knee through the same volume of high-intensity actions. Something in his game had to give.</p>
+
+        <h3>The Shift</h3>
+        <p>The visible change came gradually between 2014 and 2016. He walked in from the left touchline. He stopped attempting the through-a-defender surges that had once defined him and started arriving instead at the back post, at the near post, at the six-yard box on cutbacks. His first touch became more about setting the shot than beating a man. The dribble count fell. The finish count did not.</p>
+
+        <div class="pullquote">
+          <p>&ldquo;I&rsquo;m different now, I&rsquo;m more a penalty-box player, not so much on the wing, because you score more goals from there so I changed my position slightly.&rdquo;</p>
+          <cite>&mdash; Cristiano Ronaldo, in interview with Marca</cite>
+        </div>
+
+        <h3>The Numbers</h3>
+        <p style="margin-top: 20px;">Between the 2013-14 season (his last as a functionally two-way winger) and the 2016-17 season (his first as a fully realigned central forward), publicly tracked figures showed his high-speed sprint count per 90 minutes drop noticeably, his touches per game drop, his share of goals scored inside the six-yard box rise, and his aerial duel win-rate rise. The physical body that had once been used to run past centre-backs was being used to out-jump them.</p>
+
+        <h3>Zidane&rsquo;s Version</h3>
+        <p>The redesign accelerated under Zinedine Zidane, who took the head coach&rsquo;s job in January 2016. Zidane had been a very different kind of player, but he understood how to manage an ageing star; the deal, in effect, was fewer minutes in La Liga so that the knee held together for the Champions League. Ronaldo was rested at weekends more often, played the biggest European nights at full intensity, and produced the highest per-90 output of his life on the way to three consecutive UCL trophies.</p>
+
+        <h3>The Legacy</h3>
+        <p>It is the least glamorous chapter of the story and, for what came after it, arguably the most consequential. Without the transition, none of the post-30 numbers happen: no Euro 2016, no Nations League, no Serie A titles, no Al Nassr chase for a career-thousand. The Ronaldo who left Valladolid on 7 May 2014 was no longer the player who had left Manchester five years earlier. He would score more goals as the second version than he had as the first.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 04 — THE COME BACK ============= -->
+  <section id="comeback" class="chapter chapter--with-image">
+    <div class="chapter-wrap">
+      <div class="chapter-meta reveal">
+        <div class="chapter-num">CHAPTER 04</div>
+        <h2 class="chapter-title">
+          <span class="script">the</span>
+          Come Back
+        </h2>
+        <span class="chapter-era">2015 &mdash; 2021</span>
+        <p class="chapter-clubs">Real Madrid &middot; Juventus</p>
+        <figure class="chapter-figure">
+          <img src="assets/comeback.jpg" alt="Cristiano Ronaldo in the Juventus black-and-white home shirt celebrating a Champions League goal against Valencia in Turin, arms outstretched." loading="lazy" />
+          <figcaption>Allianz Stadium, Turin &mdash; the second act, in a different colour.</figcaption>
+        </figure>
+        <figure class="chapter-figure">
+          <img src="assets/comeback-2.jpg" alt="Cristiano Ronaldo in the Juventus shirt with the Serie A Scudetto shield, holding the Coppa Campioni d&rsquo;Italia trophy after a title win." loading="lazy" />
+          <figcaption>Scudetto in his first Italian season &mdash; and again in his second.</figcaption>
+        </figure>
+      </div>
+
+      <div class="chapter-body reveal">
+        <p>He turned 30 in February 2015, the age at which almost every elite forward begins the descent. For a stretch, it looked like he was one of them. What followed instead &mdash; after a public sag, a new manager and a settled tactical role &mdash; was the second half of a career that would look, on the numbers, like the first one. He became an out-and-out striker.</p>
+
+        <h3>Counted Out</h3>
+        <p>The reinvention did not look inevitable in the middle of it. The first half of the 2015-16 season, under Rafael Ben&iacute;tez, was the closest Ronaldo has come to a public sag. His shot volume fell, his per-game scoring rate slid to a level he had not lived at in Spain, and his body language on the pitch &mdash; hands on hips, arms out to teammates &mdash; was read across the football press as a player finally slowing down. Real Madrid lost 4-0 at home to Barcelona on 21 November 2015. Two months of "washed", "past it" and "in decline" pieces followed. Ben&iacute;tez was sacked in the first week of January 2016. Zinedine Zidane took the job the same day. The reinvention resumed.</p>
+
+        <h3>The Out-and-Out Striker</h3>
+        <p>The reinvention had begun in the seasons after Valladolid; the years that followed made it total. He was no longer a winger cutting inside. He was a central number nine, staying between the width of the six-yard box, arriving late from blind spots on crosses, timing runs onto through balls, finishing headers from set pieces. His touch to set up the shot became quicker. The shot itself came from closer to goal. The dribble count kept dropping; the finish count did not.</p>
+
+        <h3>More After Than Before</h3>
+        <p>The output that followed is the reason the numbers side of the story is unusual. Before his thirtieth birthday, Ronaldo had scored around 463 goals for club and country. He has scored a comparable total in the decade since &mdash; enough that, by his mid-thirties, his post-30 tally sat close to, and by some counts above, his pre-30 tally. Very few players in the modern professional era have crossed that line. Fewer still have done it while keeping the per-season rate at his level.</p>
+
+        <div class="stat-grid" style="margin-top: 24px; grid-template-columns: 1fr 1fr;">
+          <div class="stat">
+            <div class="k">463</div>
+            <div class="l">Career goals before turning 30</div>
+          </div>
+          <div class="stat accent">
+            <div class="k">460+</div>
+            <div class="l">Career goals after turning 30 &middot; still rising</div>
+          </div>
+        </div>
+
+        <h3>Italy</h3>
+        <p>The move to Juventus in July 2018, at 33 and for &euro;100 million, was treated in Italy as a coup and in Spain as a sign of decline. Serie A had a long defensive tradition; visiting superstars had historically arrived and gradually diminished into it. Ronaldo produced 101 goals in 134 appearances across three seasons, won back-to-back Scudetti in his first two years, and took the Serie A top-scorer prize &mdash; the Capocannoniere &mdash; in 2020-21 with 29 league goals at 36. The Champions League he had been signed to deliver did not arrive; Juventus went out in the round of 16 in each of his three seasons. But the individual output, in the league most likely to muffle a scorer at that age, did not diminish.</p>
+
+        <div class="stat-grid" style="margin-top: 20px; grid-template-columns: repeat(3, 1fr);">
+          <div class="stat accent">
+            <div class="k">101</div>
+            <div class="l">Juventus goals in 134 games</div>
+          </div>
+          <div class="stat">
+            <div class="k">2<span class="unit">&times;</span></div>
+            <div class="l">Serie A titles</div>
+          </div>
+          <div class="stat">
+            <div class="k">29</div>
+            <div class="l">League goals at 36 &middot; Capocannoniere</div>
+          </div>
+        </div>
+
+        <h3>The Answer</h3>
+        <p>The question underneath all of it &mdash; could a player rebuild a career around finishing after his running had been taken from him? &mdash; was answered several times over. He left Juventus in August 2021 with a full second decade of goals behind him, a Serie A top-scorer prize collected at 36, and a per-season output no other player in his mid-thirties in the modern game had matched. Whatever came after was a coda to a case that had already been made.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= 05 — THE FALL OFF ============= -->
+  <section id="falloff" class="chapter chapter--with-image">
+    <div class="chapter-wrap">
+      <div class="chapter-meta reveal">
+        <div class="chapter-num">CHAPTER 05</div>
+        <h2 class="chapter-title">
+          <span class="script">the</span>
+          Fall Off
+        </h2>
+        <span class="chapter-era">2021 &mdash; Present</span>
+        <p class="chapter-clubs">Manchester United &middot; Al Nassr &middot; Portugal</p>
+        <figure class="chapter-figure">
+          <img src="assets/falloff.jpg" alt="Cristiano Ronaldo in the Manchester United 2021-22 red home shirt, dribbling at Old Trafford." loading="lazy" />
+          <figcaption>Old Trafford, 2021 &mdash; the homecoming that didn&rsquo;t hold.</figcaption>
+        </figure>
+        <figure class="chapter-figure">
+          <img src="assets/falloff-2.jpg" alt="Cristiano Ronaldo in the Al Nassr yellow shirt with number 7 on the back, celebrating a goal with a raised fist." loading="lazy" />
+          <figcaption>Al Nassr, Riyadh &mdash; the last chapter, on a different continent.</figcaption>
+        </figure>
+      </div>
+
+      <div class="chapter-body reveal">
+        <p>The return to Manchester United in August 2021 was framed as a homecoming. It ended fifteen months later in a mutual, public departure after a critical television interview. Between the two dates the goals were still there &mdash; 27 in his first season back &mdash; but the team around him got worse, and the fit between an older, more static forward and the pressing football the modern Premier League had moved to was harder to disguise.</p>
+
+        <p>In January 2023 he signed for Al Nassr in Riyadh, becoming the first major European star to move to the Saudi Pro League in its current, well-funded form. The debate about what that meant &mdash; sporting choice, financial one, sportswashing, or all three &mdash; is a conversation about football politics, not about his output. On the pitch he has kept scoring at a rate most players in their late 30s do not.</p>
+
+        <p>His international role has narrowed but not ended. He remains Portugal&rsquo;s captain and, publicly at least, is chasing what would be a first for the sport: a career total of 1,000 competitive goals. Whether he reaches it is the last open question of the story.</p>
+
+        <div class="stat-grid" style="margin-top: 24px;">
+          <div class="stat">
+            <div class="k">27</div>
+            <div class="l">Goals in first season back at United</div>
+          </div>
+          <div class="stat accent">
+            <div class="k">1,000</div>
+            <div class="l">The number in front of him now</div>
+          </div>
+          <div class="stat">
+            <div class="k">40+</div>
+            <div class="l">Age he is doing this at</div>
+          </div>
+        </div>
+
+        <div class="highlight" style="margin-top: 24px;">
+          <span class="highlight-label">What&rsquo;s left</span>
+          <h4 class="highlight-title">One last number, and then the end of a chapter of the sport</h4>
+          <p class="highlight-body">Whatever happens, the era of the two-player rivalry that defined mid-2000s to late-2010s football closes when he stops. What replaces it is somebody else&rsquo;s story.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= SEND-OFF (personal note) ============= -->
+  <section id="send-off" class="send-off">
+    <div class="send-off-composite">
+      <img class="send-off-bg" src="assets/send-off.jpg" alt="Cristiano Ronaldo walking off the pitch at the Champions League final, back to camera in the Real Madrid number 7 shirt, giving a thumbs-up to photographers." loading="lazy" />
+      <div class="send-off-content">
+        <span class="send-off-eyebrow">One more thing &middot; personal note</span>
+        <h2 class="send-off-title">
+          <span class="script">and finally</span>
+          the send-off
+        </h2>
+        <p>Cristiano Ronaldo is an inspiration for young boys everywhere &mdash; to <em>work hard</em>, to chase their dreams, to be confident when nobody else is confident in them yet.</p>
+        <p>He might not be the GOAT in every conversation. That&rsquo;s fine. What he will be remembered for is his work ethic, his determination, and his ability to keep adapting &mdash; through the injury, through the country he was in at any given point in his career, through every era of the game that told him he was finished. That, in the end, is the part worth taking with you.</p>
+        <div class="send-off-signature">
+          <span class="script">&mdash; grazie, CR7</span>
+          <span class="who">A fan&rsquo;s note</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FOOTER ============= -->
+  <footer class="footer">
+    <div class="footer-wrap">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>The Ronaldo Story</span>
+      </div>
+      <p>A neutral tribute project &middot; Built for design practice.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    // Enable JS-only styles (reveal on scroll etc.)
+    document.documentElement.classList.add('js');
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    // Safety net: after 1.2s any element still not revealed gets shown
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.in)').forEach((el) => el.classList.add('in'));
+    }, 1200);
+
+    // ===== 3D scroll effects (GSAP ScrollTrigger) =====
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (window.gsap && window.ScrollTrigger && !reducedMotion) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const perspective = 1400;
+
+      // Direction-aware bidirectional animator.
+      // Fires when the trigger enters the viewport from either direction.
+      // Passes 'down' or 'up' so each animation can mirror itself for scroll-up.
+      const bidir = (trigger, start, onFire) => {
+        ScrollTrigger.create({
+          trigger,
+          start,
+          onEnter: () => onFire('down'),
+          onEnterBack: () => onFire('up'),
+        });
+      };
+
+      // ---- 1 & 2. Chapter body + meta: 3D tilt-in as ONE-TIME on-enter animations.
+      //     Scrub was too expensive across 5 chapters. Play once, then release. ----
+      gsap.utils.toArray('.chapter-body').forEach((body) => {
+        bidir(body, 'top 85%', (dir) => {
+          gsap.fromTo(body,
+            { rotationX: dir === 'down' ? 20 : -20, y: dir === 'down' ? 80 : -80, transformOrigin: '50% 100%', transformPerspective: perspective },
+            { rotationX: 0, y: 0, ease: 'power3.out', duration: 1.1, overwrite: 'auto' }
+          );
+        });
+      });
+      gsap.utils.toArray('.chapter--with-image .chapter-meta').forEach((meta) => {
+        bidir(meta, 'top 88%', (dir) => {
+          gsap.fromTo(meta,
+            { rotationX: dir === 'down' ? 16 : -16, y: dir === 'down' ? 60 : -60, transformOrigin: '50% 100%', transformPerspective: perspective },
+            { rotationX: 0, y: 0, ease: 'power3.out', duration: 1, overwrite: 'auto' }
+          );
+        });
+      });
+
+      // ---- 3. Chapter titles: per-character reveal (split-text) ----
+      // Split direct text nodes into span.char while preserving the .script sub-span.
+      const splitDirectTextIntoChars = (parent, skipSelector) => {
+        const chars = [];
+        Array.from(parent.childNodes).forEach((node) => {
+          if (node.nodeType !== Node.TEXT_NODE) return;
+          const trimmed = node.textContent.trim();
+          if (!trimmed) return;
+          const frag = document.createDocumentFragment();
+          for (const ch of trimmed) {
+            if (ch === ' ') {
+              frag.appendChild(document.createTextNode(' '));
+            } else {
+              const span = document.createElement('span');
+              span.className = 'char';
+              span.textContent = ch;
+              frag.appendChild(span);
+              chars.push(span);
+            }
+          }
+          node.parentNode.replaceChild(frag, node);
+        });
+        return chars;
+      };
+
+      gsap.utils.toArray('.chapter-title').forEach((title) => {
+        const script = title.querySelector('.script');
+        const chars = splitDirectTextIntoChars(title);
+        // Hide chars initially to avoid flash before scroll trigger fires
+        gsap.set(chars, { y: 60, opacity: 0, rotationX: -60, transformOrigin: '50% 100%', transformPerspective: perspective });
+        if (script) gsap.set(script, { y: 30, opacity: 0, rotate: -8, transformOrigin: 'left center' });
+
+        ScrollTrigger.create({
+          trigger: title,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => {
+            if (script) {
+              gsap.to(script, { y: 0, opacity: 1, rotate: -3, duration: 0.7, ease: 'power3.out' });
+            }
+            gsap.to(chars, {
+              y: 0, opacity: 1, rotationX: 0,
+              duration: 0.7,
+              ease: 'power3.out',
+              stagger: 0.045,
+              delay: script ? 0.15 : 0,
+            });
+          },
+        });
+      });
+
+      // Hero title: same per-character reveal, fires on load
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        const heroChars = splitDirectTextIntoChars(heroTitle);
+        gsap.from(heroChars, {
+          y: 80, opacity: 0, rotationX: -60,
+          duration: 0.9,
+          ease: 'power3.out',
+          stagger: 0.03,
+          delay: 0.4,
+          transformOrigin: '50% 100%',
+          transformPerspective: perspective,
+        });
+      }
+
+      // ---- 11. Number counters: stat cards' big numbers roll up from 0 ----
+      const animateCounter = (el, endValue, prefix, suffix) => {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: endValue,
+          duration: 1.6,
+          ease: 'power2.out',
+          onUpdate: () => {
+            el.innerHTML = prefix + Math.round(obj.val).toLocaleString() + suffix;
+          },
+        });
+      };
+
+      document.querySelectorAll('.stat .k, .stat-card .num').forEach((el) => {
+        const html = el.innerHTML;
+        const match = html.match(/^([^\d]*)([\d,]+)([\s\S]*)$/);
+        if (!match) return;
+        const prefix = match[1];
+        const num = parseInt(match[2].replace(/,/g, ''), 10);
+        const suffix = match[3];
+        if (!Number.isFinite(num)) return;
+
+        // Snap to zero
+        el.innerHTML = prefix + '0' + suffix;
+
+        // If already in the viewport on load (e.g., hero stat card), animate immediately
+        const rect = el.getBoundingClientRect();
+        const alreadyVisible = rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
+        if (alreadyVisible) {
+          animateCounter(el, num, prefix, suffix);
+        } else {
+          ScrollTrigger.create({
+            trigger: el.closest('.stat-grid') || el.closest('.stat-card') || el,
+            start: 'top 85%',
+            once: true,
+            onEnter: () => animateCounter(el, num, prefix, suffix),
+          });
+        }
+      });
+
+      // ---- 12. Reading progress bar (scaleX 0 → 1 across whole page scroll) ----
+      const progressFill = document.querySelector('.progress-fill');
+      if (progressFill) {
+        gsap.to(progressFill, {
+          scaleX: 1,
+          ease: 'none',
+          scrollTrigger: {
+            start: 0,
+            end: 'max',
+            scrub: 0.15,
+          },
+        });
+      }
+
+      // ---- 4. Chapter photographs: pure yPercent parallax (dropped the scale to save GPU) ----
+      gsap.utils.toArray('.chapter-figure img').forEach((img) => {
+        gsap.fromTo(img,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: img.closest('.chapter-figure'),
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.8,
+            },
+          }
+        );
+      });
+
+      // ---- 5. Stat cards: 3D flip-in with stagger (mirrors on scroll up) ----
+      gsap.utils.toArray('.stat-grid').forEach((grid) => {
+        const cards = grid.querySelectorAll('.stat');
+        bidir(grid, 'top 88%', (dir) => {
+          const rotY = dir === 'down' ? 55 : -55;
+          const y = dir === 'down' ? 40 : -40;
+          gsap.fromTo(cards,
+            { rotationY: rotY, rotationX: 12, y, opacity: 0, transformOrigin: dir === 'down' ? '0% 50%' : '100% 50%', transformPerspective: perspective },
+            {
+              rotationY: 0, rotationX: 0, y: 0, opacity: 1,
+              ease: 'power3.out',
+              duration: 0.9,
+              stagger: 0.12,
+              overwrite: 'auto',
+            }
+          );
+        });
+      });
+
+      // ---- 6. Highlight cards: rise from below (down) / drop from above (up) ----
+      gsap.utils.toArray('.highlight').forEach((el) => {
+        bidir(el, 'top 85%', (dir) => {
+          const rotX = dir === 'down' ? 18 : -18;
+          const y = dir === 'down' ? 60 : -60;
+          gsap.fromTo(el,
+            { rotationX: rotX, y, z: -100, opacity: 0, transformOrigin: dir === 'down' ? '50% 100%' : '50% 0%', transformPerspective: perspective },
+            {
+              rotationX: 0, y: 0, z: 0, opacity: 1,
+              ease: 'power3.out',
+              duration: 1,
+              overwrite: 'auto',
+            }
+          );
+        });
+      });
+
+      // ---- 7. Pull-quote: door swing from left (down) / from right (up) ----
+      gsap.utils.toArray('.pullquote').forEach((el) => {
+        bidir(el, 'top 85%', (dir) => {
+          const rotY = dir === 'down' ? -35 : 35;
+          const x = dir === 'down' ? -40 : 40;
+          gsap.fromTo(el,
+            { rotationY: rotY, x, opacity: 0, transformOrigin: dir === 'down' ? '0% 50%' : '100% 50%', transformPerspective: perspective },
+            {
+              rotationY: 0, x: 0, opacity: 1,
+              ease: 'power3.out',
+              duration: 1,
+              overwrite: 'auto',
+            }
+          );
+        });
+      });
+
+      // ---- 8. Section subheads: slide from left (down) / from right (up) ----
+      gsap.utils.toArray('.chapter-body h3').forEach((h) => {
+        bidir(h, 'top 88%', (dir) => {
+          const x = dir === 'down' ? -30 : 30;
+          gsap.fromTo(h,
+            { x, opacity: 0, letterSpacing: '0.12em' },
+            {
+              x: 0, opacity: 1, letterSpacing: '-0.01em',
+              ease: 'power2.out',
+              duration: 0.8,
+              overwrite: 'auto',
+            }
+          );
+        });
+      });
+
+      // ---- 9. Hero card: mouse-driven 3D tilt, rAF-throttled to once per frame ----
+      const heroCard = document.querySelector('.hero-card');
+      if (heroCard) {
+        const hero = document.querySelector('.hero');
+        const tiltMax = 8;
+        let pending = false;
+        let latestX = 0, latestY = 0;
+        hero.addEventListener('mousemove', (e) => {
+          const rect = hero.getBoundingClientRect();
+          latestX = (e.clientX - rect.left) / rect.width - 0.5;
+          latestY = (e.clientY - rect.top) / rect.height - 0.5;
+          if (!pending) {
+            pending = true;
+            requestAnimationFrame(() => {
+              gsap.to(heroCard, {
+                rotationY: latestX * tiltMax,
+                rotationX: -latestY * tiltMax,
+                transformPerspective: 1800,
+                duration: 0.6,
+                ease: 'power2.out',
+                overwrite: 'auto',
+              });
+              pending = false;
+            });
+          }
+        }, { passive: true });
+        hero.addEventListener('mouseleave', () => {
+          gsap.to(heroCard, { rotationY: 0, rotationX: 0, duration: 0.8, ease: 'power2.out' });
+        });
+      }
+
+      // ---- 10. Hero script pop-in + hero-card scroll-out push-back ----
+      const heroScript = document.querySelector('.hero-script');
+      if (heroScript) {
+        gsap.fromTo(heroScript,
+          { z: 80, opacity: 0, scale: 1.4 },
+          { z: 0, opacity: 1, scale: 1, duration: 1.3, ease: 'power3.out', delay: 0.2 }
+        );
+      }
+      // Very light scroll-out: the whole hero pushes back and fades as you leave it
+      gsap.to('.hero-card', {
+        rotationX: 8,
+        z: -200,
+        opacity: 0.6,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'bottom bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      });
+    }
+
+    // Active nav pill on scroll
+    const links = document.querySelectorAll('.nav-pill a');
+    const map = new Map();
+    links.forEach((a) => {
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (target) map.set(target, a);
+    });
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          links.forEach((a) => a.classList.remove('active'));
+          map.get(e.target)?.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    map.forEach((_a, target) => spy.observe(target));
+  </script>
+</body>
+</html>
